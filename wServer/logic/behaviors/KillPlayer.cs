@@ -76,7 +76,7 @@ namespace wServer.logic.behaviors
                 EffectType = EffectType.Trail,
                 TargetObjectId = host.Id,
                 Pos1 = new Position { X = player.X, Y = player.Y },
-                Color = new ARGB(0xffffffff)
+                Color = new BGRA(0xffffffff)
             }, host, null);
 
             // kill player

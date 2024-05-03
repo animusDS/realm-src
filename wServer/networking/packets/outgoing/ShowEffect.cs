@@ -8,7 +8,7 @@ namespace wServer.networking.packets.outgoing
         public int TargetObjectId { get; set; }
         public Position Pos1 { get; set; }
         public Position Pos2 { get; set; }
-        public ARGB Color { get; set; }
+        public BGRA Color { get; set; }
 
         public override PacketId ID => PacketId.SHOWEFFECT;
         public override Packet CreateInstance() { return new ShowEffect(); }
@@ -19,7 +19,7 @@ namespace wServer.networking.packets.outgoing
             TargetObjectId = rdr.ReadInt32();
             Pos1 = Position.Read(rdr);
             Pos2 = Position.Read(rdr);
-            Color = ARGB.Read(rdr);
+            Color = BGRA.Read(rdr);
         }
         protected override void Write(NWriter wtr)
         {

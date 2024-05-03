@@ -6,7 +6,7 @@ namespace wServer.networking.packets.outgoing
     {
         public int ObjectId { get; set; }
         public string Message { get; set; }
-        public ARGB Color { get; set; }
+        public BGRA Color { get; set; }
 
         public override PacketId ID => PacketId.NOTIFICATION;
         public override Packet CreateInstance() { return new Notification(); }
@@ -15,7 +15,7 @@ namespace wServer.networking.packets.outgoing
         {
             ObjectId = rdr.ReadInt32();
             Message = rdr.ReadUTF();
-            Color = ARGB.Read(rdr);
+            Color = BGRA.Read(rdr);
         }
         protected override void Write(NWriter wtr)
         {

@@ -211,7 +211,7 @@ namespace wServer.realm.commands
 
             w.BroadcastPacket(new Notification
             {
-                Color = new ARGB(0xffff0000),
+                Color = new BGRA(0xffff0000),
                 ObjectId = player.Id,
                 Message = notif
             }, null);

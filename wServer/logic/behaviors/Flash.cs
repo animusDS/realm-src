@@ -31,7 +31,7 @@ namespace wServer.logic.behaviors
                 EffectType = EffectType.Flashing,
                 Pos1 = new Position() { X = flashPeriod, Y = flashRepeats },
                 TargetObjectId = host.Id,
-                Color = new ARGB(color)
+                Color = new BGRA(color)
             }, host, null);
         }
     }

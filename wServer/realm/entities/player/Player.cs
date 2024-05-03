@@ -506,7 +506,7 @@ namespace wServer.realm.entities
                     EffectType = EffectType.Teleport,
                     TargetObjectId = id,
                     Pos1 = position,
-                    Color = new ARGB(0xFFFFFFFF)
+                    Color = new BGRA(0xFFFFFFFF)
                 }
             };
             foreach (var plr in Owner.Players.Values)

@@ -150,34 +150,36 @@ namespace wServer
         BeachBall = 16
     }
 
-    public struct ARGB
+    public struct BGRA
     {
-        public ARGB(uint argb)
+        public BGRA(uint argb)
         {
-            A = (byte)((argb & 0xff000000) >> 24);
-            R = (byte)((argb & 0x00ff0000) >> 16);
-            G = (byte)((argb & 0x0000ff00) >> 8);
-            B = (byte)((argb & 0x000000ff) >> 0);
+            B = (byte)(argb & 0xFF);
+            G = (byte)((argb >> 8) & 0xFF);
+            R = (byte)((argb >> 16) & 0xFF);
+            A = (byte)((argb >> 24) & 0xFF);
         }
-        public byte A;
-        public byte R;
-        public byte G;
+        
         public byte B;
-        public static ARGB Read(NReader rdr)
+        public byte G;
+        public byte R;
+        public byte A;
+        
+        public static BGRA Read(NReader rdr)
         {
-            ARGB ret = new ARGB();
-            ret.A = rdr.ReadByte();
-            ret.R = rdr.ReadByte();
-            ret.G = rdr.ReadByte();
+            BGRA ret = new BGRA();
             ret.B = rdr.ReadByte();
+            ret.G = rdr.ReadByte();
+            ret.R = rdr.ReadByte();
+            ret.A = rdr.ReadByte();
             return ret;
         }
         public void Write(NWriter wtr)
         {
-            wtr.Write(A);
-            wtr.Write(R);
-            wtr.Write(G);
             wtr.Write(B);
+            wtr.Write(G);
+            wtr.Write(R);
+            wtr.Write(A);
         }
     }
 

@@ -36,7 +36,7 @@ namespace wServer.realm.entities
                 Owner.BroadcastPacketNearby(new ShowEffect()
                 {
                     EffectType = EffectType.Trap,
-                    Color = new ARGB(0xff9000ff),
+                    Color = new BGRA(0xff9000ff),
                     TargetObjectId = Id,
                     Pos1 = new Position() { X = radius / 2 }
                 }, this, null);
@@ -62,7 +62,7 @@ namespace wServer.realm.entities
             Owner.BroadcastPacketNearby(new ShowEffect()
             {
                 EffectType = EffectType.AreaBlast,
-                Color = new ARGB(0xff9000ff),
+                Color = new BGRA(0xff9000ff),
                 TargetObjectId = Id,
                 Pos1 = new Position() { X = radius }
             }, this, null);

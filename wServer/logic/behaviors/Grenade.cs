@@ -68,7 +68,7 @@ namespace wServer.logic.behaviors
                     host.Owner.BroadcastPacketNearby(new ShowEffect()
                     {
                         EffectType = EffectType.Throw,
-                        Color = new ARGB(color),
+                        Color = new BGRA(color),
                         TargetObjectId = host.Id,
                         Pos1 = target
                     }, host, null);

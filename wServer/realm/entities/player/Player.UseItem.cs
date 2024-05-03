@@ -405,7 +405,7 @@ namespace wServer.realm.entities
             // announce
             Owner.BroadcastPacket(new Notification
             {
-                Color = new ARGB(0xFF00FF00),
+                Color = new BGRA(0xFF00FF00),
                 ObjectId = Id,
                 Message = "Unlocked by " + Name
             }, null);
@@ -440,7 +440,7 @@ namespace wServer.realm.entities
                 EffectType = EffectType.Trail,
                 Pos1 = target,
                 TargetObjectId = Id,
-                Color = new ARGB(0xFFFF00AA)
+                Color = new BGRA(0xFFFF00AA)
             };
 
             foreach (var plr in Owner.Players.Values
@@ -495,7 +495,7 @@ namespace wServer.realm.entities
             string openedByMsg = gameData.Portals[objType].DungeonName + " opened by " + Name + "!";
             Owner.BroadcastPacket(new Notification
             {
-                Color = new ARGB(0xFF00FF00),
+                Color = new BGRA(0xFF00FF00),
                 ObjectId = Id,
                 Message = openedByMsg
             }, null);
@@ -533,7 +533,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff),
+                Color = new BGRA(0xffffffff),
                 Pos1 = new Position() { X = 1 }
             }, p => this.DistSqr(p) < RadiusSqr);
         }
@@ -545,7 +545,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff),
+                Color = new BGRA(0xffffffff),
                 Pos1 = new Position() { X = eff.Range }
             }, p => this.DistSqr(p) < RadiusSqr);
         }
@@ -555,7 +555,7 @@ namespace wServer.realm.entities
             BroadcastSync(new ShowEffect()
             {
                 EffectType = EffectType.Throw,
-                Color = new ARGB(0xffddff00),
+                Color = new BGRA(0xffddff00),
                 TargetObjectId = Id,
                 Pos1 = target
             }, p => this.DistSqr(p) < RadiusSqr);
@@ -568,7 +568,7 @@ namespace wServer.realm.entities
                 world.BroadcastPacketNearby(new ShowEffect()
                 {
                     EffectType = EffectType.AreaBlast,
-                    Color = new ARGB(0xffddff00),
+                    Color = new BGRA(0xffddff00),
                     TargetObjectId = x.Id,
                     Pos1 = new Position() { X = eff.Radius }
                 }, x, null);
@@ -600,7 +600,7 @@ namespace wServer.realm.entities
                     {
                         EffectType = EffectType.Trail,
                         TargetObjectId = Id,
-                        Color = new ARGB(0xffff0088),
+                        Color = new BGRA(0xffff0088),
                         Pos1 = new Position()
                         {
                             X = x,
@@ -656,7 +656,7 @@ namespace wServer.realm.entities
                 {
                     EffectType = EffectType.Lightning,
                     TargetObjectId = prev.Id,
-                    Color = new ARGB(0xffff0088),
+                    Color = new BGRA(0xffff0088),
                     Pos1 = new Position()
                     {
                         X = targets[i].X,
@@ -685,7 +685,7 @@ namespace wServer.realm.entities
                     TargetObjectId = Id,
                     Pos1 = target,
                     Pos2 = new Position() {X = target.X + 3, Y = target.Y},
-                    Color = new ARGB(0xffffffff)
+                    Color = new BGRA(0xffffffff)
                 }
             };
 
@@ -696,7 +696,7 @@ namespace wServer.realm.entities
                     pkts.Add(new Notification()
                     {
                         ObjectId = enemy.Id,
-                        Color = new ARGB(0xff00ff00),
+                        Color = new BGRA(0xff00ff00),
                         Message = "Immune"
                     });
                 }
@@ -710,7 +710,7 @@ namespace wServer.realm.entities
                     pkts.Add(new Notification()
                     {
                         ObjectId = enemy.Id,
-                        Color = new ARGB(0xffff0000),
+                        Color = new BGRA(0xffff0000),
                         Message = "Stasis"
                     });
                 }
@@ -723,7 +723,7 @@ namespace wServer.realm.entities
             BroadcastSync(new ShowEffect()
             {
                 EffectType = EffectType.Throw,
-                Color = new ARGB(0xff9000ff),
+                Color = new BGRA(0xff9000ff),
                 TargetObjectId = Id,
                 Pos1 = target
             }, p => this.DistSqr(p) < RadiusSqr);
@@ -750,12 +750,12 @@ namespace wServer.realm.entities
                     EffectType = EffectType.Trail,
                     TargetObjectId = Id,
                     Pos1 = target,
-                    Color = new ARGB(0xFFFF0000)
+                    Color = new BGRA(0xFFFF0000)
                 },
                 new ShowEffect
                 {
                     EffectType = EffectType.Diffuse,
-                    Color = new ARGB(0xFFFF0000),
+                    Color = new BGRA(0xFFFF0000),
                     TargetObjectId = Id,
                     Pos1 = target,
                     Pos2 = new Position { X = target.X + eff.Radius, Y = target.Y }
@@ -792,7 +792,7 @@ namespace wServer.realm.entities
                         EffectType = EffectType.Flow,
                         TargetObjectId = b.Id,
                         Pos1 = new Position() { X = a.X, Y = a.Y },
-                        Color = new ARGB(0xffffffff)
+                        Color = new BGRA(0xffffffff)
                     });
                 }
             }
@@ -814,7 +814,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff),
+                Color = new BGRA(0xffffffff),
                 Pos1 = new Position() { X = eff.Range }
             });
             BroadcastSync(pkts, p => this.DistSqr(p) < RadiusSqr);
@@ -842,7 +842,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff),
+                Color = new BGRA(0xffffffff),
                 Pos1 = new Position() { X = range }
             });
             BroadcastSync(pkts, p => this.DistSqr(p) < RadiusSqr);
@@ -878,7 +878,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(color),
+                Color = new BGRA(color),
                 Pos1 = new Position() { X = range }
             }, p => this.DistSqr(p) < RadiusSqr);
         }
@@ -932,7 +932,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff),
+                Color = new BGRA(0xffffffff),
                 Pos1 = new Position() { X = 1 }
             }, p => this.DistSqr(p) < RadiusSqr);
         }
@@ -966,7 +966,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.AreaBlast,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff),
+                Color = new BGRA(0xffffffff),
                 Pos1 = new Position() { X = range }
             }, p => this.DistSqr(p) < RadiusSqr);
         }
@@ -986,7 +986,7 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.Potion,
                 TargetObjectId = Id,
-                Color = new ARGB(0xffffffff)
+                Color = new BGRA(0xffffffff)
             }, p => this.DistSqr(p) < RadiusSqr);
         }
 
@@ -1027,11 +1027,11 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.Potion,
                 TargetObjectId = player.Id,
-                Color = new ARGB(0xffffffff)
+                Color = new BGRA(0xffffffff)
             });
             pkts.Add(new Notification()
             {
-                Color = new ARGB(0xff00ff00),
+                Color = new BGRA(0xff00ff00),
                 ObjectId = player.Id,
                 Message = "+" + (newHp - player.HP)
             });
@@ -1050,11 +1050,11 @@ namespace wServer.realm.entities
             {
                 EffectType = EffectType.Potion,
                 TargetObjectId = player.Id,
-                Color = new ARGB(0xffffffff)
+                Color = new BGRA(0xffffffff)
             });
             pkts.Add(new Notification()
             {
-                Color = new ARGB(0xff9000ff),
+                Color = new BGRA(0xff9000ff),
                 ObjectId = player.Id,
                 Message = "+" + (newMp - player.MP)
             });
@@ -1079,7 +1079,7 @@ namespace wServer.realm.entities
                 {
                     EffectType = EffectType.Dead,
                     TargetObjectId = enemy.Id,
-                    Color = new ARGB(0xffddff00)
+                    Color = new BGRA(0xffddff00)
                 }, p => enemy.DistSqr(p) < RadiusSqr);*/
 
                 if (x % 4 == 0) // make sure to change this if timer delay is changed

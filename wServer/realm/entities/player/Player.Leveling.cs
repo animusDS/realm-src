@@ -238,7 +238,7 @@ namespace wServer.realm.entities
                 BroadcastSync(new Notification()
                 {
                     ObjectId = Id,
-                    Color = new ARGB(0xFF00FF00),
+                    Color = new BGRA(0xFF00FF00),
                     Message = "Class Quest Complete!"
                 }, p => this.DistSqr(p) < RadiusSqr);
                 Stars = GetStars();
@@ -248,7 +248,7 @@ namespace wServer.realm.entities
             //    BroadcastSync(new Notification()
             //    {
             //        ObjectId = Id,
-            //        Color = new ARGB(0xFFE25F00),
+            //        Color = new BGRA(0xFFE25F00),
             //        Message = "+" + (newFame - Fame) + "Fame"
             //    }, p => this.DistSqr(p) < RadiusSqr);
             //}
@@ -303,7 +303,7 @@ namespace wServer.realm.entities
                 BroadcastSync(new Notification()
                 {
                     ObjectId = Id,
-                    Color = new ARGB(0xFF00FF00),
+                    Color = new BGRA(0xFF00FF00),
                     Message = "Quest Complete!"
                 }, p => this.DistSqr(p) < RadiusSqr);
             if (exp != 0)

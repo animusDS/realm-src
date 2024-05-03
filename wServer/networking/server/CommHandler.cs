@@ -124,8 +124,7 @@ namespace wServer.networking.server
                 // set packet length when prefix read
                 if (r.BytesRead == _prefixLength)
                 {
-                    r.PacketLength = IPAddress.NetworkToHostOrder(
-                        BitConverter.ToInt32(r.PacketBytes, 0));
+                    r.PacketLength = BitConverter.ToInt32(r.PacketBytes, 0);
 
                     // check for policy file (kinda hackish code)
                     if (r.PacketLength == 1014001516)
